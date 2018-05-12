@@ -8,7 +8,12 @@ module.exports = function(app) {
       res.render('index', handleBarsObj);
   });
 
-  app.get('/home', function (req, res) {
-    console.log('logged in')
-  })
+  app.get("/home", function(req, res){
+  	console.log(req.user.dataValues)
+  	let handleBarsObj = {
+  		name: req.user.dataValues.username,
+  		image: req.user.dataValues.profileIMG
+  	}
+    res.render("home", handleBarsObj);
+	});
 };

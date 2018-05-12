@@ -5,9 +5,6 @@ module.exports = function(app) {
 	app.get("/login", function(req, res){
     res.render("login");
 	});
-	app.get("/test", function(req, res){
-    res.render("test");
-	});
 
 	// auth logout
 
@@ -22,12 +19,10 @@ module.exports = function(app) {
 	     scope: ["profile"]
 	}));
 
-	app.get('/auth/google/redirect', 
-	  passport.authenticate('google', { 
-	  	successRedirect: '/test',
-	  	failureRedirect: '/' }),
-	  function(req, res) {
-	  	console.log(req, res);
-	    res.redirect('/test');
+	app.get('/auth/google/callback', 
+	  passport.authenticate('google'),
+	  (req, res) => {
+	  	// console.log(req.user.)
+	  	res.redirect('/home')
   });
 }
