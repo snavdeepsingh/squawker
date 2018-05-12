@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+var passportSetup = require('./config/passport-setup.js');
 
 var PORT = process.env.PORT || 3000;
 var app = express();
@@ -11,9 +12,12 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// For Passport
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+require('./routes/auth-routes.js')(app);
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
