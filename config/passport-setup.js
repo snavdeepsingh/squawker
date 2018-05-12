@@ -1,6 +1,6 @@
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth20");
-var keys = require("./.keys.js");
+var keys = require("./keys.js");
 var db = require('../models');
 
 passport.use(new GoogleStrategy({
@@ -17,7 +17,6 @@ passport.use(new GoogleStrategy({
     	username: profile.displayName,
     	imageURL: profile.image
     }).then( result => {
-    	console.log(result)
-    	return done(result)
+    	return done(true);
     });
 }))

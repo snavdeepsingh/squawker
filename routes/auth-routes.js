@@ -5,6 +5,9 @@ module.exports = function(app) {
 	app.get("/login", function(req, res){
     res.render("login");
 	});
+	app.get("/test", function(req, res){
+    res.render("test");
+	});
 
 	// auth logout
 
@@ -20,8 +23,11 @@ module.exports = function(app) {
 	}));
 
 	app.get('/auth/google/redirect', 
-	  passport.authenticate('google', { failureRedirect: '/login' }),
+	  passport.authenticate('google', { 
+	  	successRedirect: '/test',
+	  	failureRedirect: '/' }),
 	  function(req, res) {
-	    res.redirect('/');
+	  	console.log(req, res);
+	    res.redirect('/test');
   });
 }
