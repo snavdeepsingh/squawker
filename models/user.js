@@ -7,10 +7,14 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    imageURL: {
+    googleID: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    profileIMG: {
       type: DataTypes.STRING,
       // allowNull: false,
-      defaultValue: ''
+      // defaultValue: ''
     }
   });
 
