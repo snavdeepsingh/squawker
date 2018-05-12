@@ -19,9 +19,9 @@ module.exports = function(app) {
 	     scope: ["profile"]
 	}));
 
-	// callback route for google to redirect to 
-	app.get("/auth/google/redirect", passport.authenticate("google") ,function(req, res){
-	   console.log(req);
-	   res.send(true)
-	})
+	app.get('/auth/google/redirect', 
+	  passport.authenticate('google', { failureRedirect: '/login' }),
+	  function(req, res) {
+	    res.redirect('/');
+  });
 }
