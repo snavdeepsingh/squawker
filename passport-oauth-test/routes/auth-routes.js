@@ -26,5 +26,3 @@ router.get("/google/redirect", passport.authenticate("google") ,function(req, re
 })
 
 module.exports = router;
-
-
