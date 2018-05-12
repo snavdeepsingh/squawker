@@ -9,11 +9,15 @@ module.exports = function(app) {
   });
 
   app.get("/home", function(req, res){
-  	console.log(req.user.dataValues)
-  	let handleBarsObj = {
-  		name: req.user.dataValues.username,
-  		image: req.user.dataValues.profileIMG
+  	// console.log(req.user.dataValues)
+  	if (req.user){
+  		let handleBarsObj = {
+	  		name: req.user.dataValues.username,
+	  		image: req.user.dataValues.profileIMG
+	  	}
+	    return res.render("home", handleBarsObj);
   	}
-    res.render("home", handleBarsObj);
+  	return res.redirect('/')
+  	
 	});
 };
