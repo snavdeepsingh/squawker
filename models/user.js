@@ -9,7 +9,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     imageURL: {
       type: DataTypes.STRING,
-      allowNull: false
+      // allowNull: false,
+      defaultValue: ''
     }
   });
 
