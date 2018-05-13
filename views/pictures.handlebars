@@ -1,4 +1,4 @@
-<nav class="navbar mb-auto navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a href="/home">
     {{#if image}}
   	  <img 
@@ -24,7 +24,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-    	<li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="/info">How it works</a>
       </li>
       <li class="nav-item">
@@ -38,14 +38,15 @@
 </nav>
 
 <div class="container">
-	<div class="row title-container">
-		<div class="col align-self-center">
-			<h1>WELCOME</h1>
-		</div>
-	</div>
-	<div class="row btn-container">
-		<div class="col align-self-center">
-			<button type="button" class="btn btn-primary">Capture</button>
-		<div>
+	<div class="row">
+			{{#each photos}}
+				<div class="col-md-3 col-sm-4 col-xs-6 bird-photo-wrapper">
+					<img src={{src}} class="bird-photo"/>
+					<br />
+					<p>{{name}}</p>
+				</div>
+			{{else}}
+				<p>No Photos</p>
+			{{/each}}
 	</div>
 </div>
