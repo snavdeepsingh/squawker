@@ -10,15 +10,43 @@ function base64_encode(file) {
 }
 
 let testImage = '../public/images/harrishawk.jpg'
-let testURL = "http://cdn.audubon.org/cdn/farfuture/hh8B4rQM6EMBMiZCfVR0p3yrg6PeZXIt_-9DeYG0dGY/mtime:1422549346/sites/default/files/Harris%2527s_Hawk_b13-46-102_l_0.jpg"
+let testURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/220px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
 
 let base64str = base64_encode(testImage);
 const apiCall = 'https://vision.googleapis.com/v1/images:annotate?key=' + keys.googleVision.apiKey
+
+// Local Image
+// const reqObj = {
+//   "requests": [
+//     {
+//       "image": {
+//         "content": base64str
+//       },
+//       "features": [
+//         {
+//           "type": "LABEL_DETECTION"
+//         },
+//         {
+//           "type": "WEB_DETECTION"
+//         }
+//       ],
+//       imageContext: {
+//         webDetectionParams: {
+//           includeGeoResults: true,
+//         },
+//       },
+//     }
+//   ]
+// }
+
+// Remote Image
 const reqObj = {
   "requests": [
     {
       "image": {
-        "content": base64str
+        "source": {
+          "imageUri": testURL
+        }
       },
       "features": [
         {
@@ -40,10 +68,10 @@ const reqObj = {
 axios.post(apiCall, reqObj)
   .then((response) => {
     // console.log(response);
-    // console.log(JSON.stringify(response.data.responses, undefined, 4));
-    console.log(response.data.responses[0].labelAnnotations)
-    console.log(response.data.responses[0].webDetection);
-    console.log(response.data.responses[0].webDetection.visuallySimilarImages[0].url);
+    console.log(JSON.stringify(response.data.responses, undefined, 2));
+    // console.log(response.data.responses[0].labelAnnotations)
+    // console.log(response.data.responses[0].webDetection);
+    // console.log(response.data.responses[0].webDetection.visuallySimilarImages[0].url);
     // base64str = response.data.responses[0].webDetection.visuallySimilarImages[0].url
     // axios.post(apiCall, reqObj)
 }).catch((e) => {
