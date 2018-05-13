@@ -1,0 +1,56 @@
+@font-face {
+	font-family: "Brandon-Black";
+	src: url('../fonts/Brandon_blk.otf');
+}
+@font-face {
+	font-family: "Brandon-Reg";
+	src: url('../fonts/Brandon_reg.otf');
+}
+body {
+	background-image: url('https://images.pexels.com/photos/326900/pexels-photo-326900.jpeg?auto=compress&cs=tinysrgb&h=350a');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	font-family: "Brandon-Reg";
+	min-height: 100vh;
+}
+h1 {
+	font-family: "Brandon-Black";
+}
+.navbar {
+	z-index: 1000;
+}
+
+/*Home*/
+.title-container {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+}
+.title-container h1 {
+	color: #fff;
+}
+
+.btn-container {
+	position: absolute;
+	left: 0;
+	bottom: 20%;
+	width: 100%;
+	text-align: center;
+}
+
+/*Photos*/
+.bird-photo-wrapper {
+	height: 200px;
+	padding: 20px;
+	margin: 10px 0 10px 0;
+	text-align: center;
+}
+.bird-photo {
+	border-radius: 20px;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
