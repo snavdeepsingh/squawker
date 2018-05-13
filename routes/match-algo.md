@@ -26,13 +26,19 @@
     if (fullMatchingImages || partialMatchingImages keys are present) {
       We know this is probably not original image content, so we have high confidence that the webEntity labels are good
 
-      <!-- create new object for matching descriptions -->
-      let matchingDescriptionsArray = webEntities.map(description => {
-        query bird name database for matching description
-        if (description is found in bird name db) {
-          matchingDescriptionsArray.push(description)
+      <!-- Filter the matching names from the bird name database with the descriptions and then map to new array of objects with only descriptions & scores -->
+      let filteredArray = webEntities.filter(entity => {
+        return matchingDBNamesArray.includes(entity.description)
+      }).map(entity => {
+        return {
+          description: entity.description,
+          score: entity.score
         }
       })
+      <!-- Find the highest score from the new array of objects -->
+      let highScore = Math.max.apply(Math,filteredArray.map(bird => bird.score))
+      <!-- Find which bird it belongs to -->
+      let match = filteredArray.find(bird => bird.score === highScore)
 
     }
   }
