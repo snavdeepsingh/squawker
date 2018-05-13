@@ -65,3 +65,6 @@ keys.js
 
 #schema
 *.sql
+
+#keyfile for googleStorage
+config/keyfile.json
