@@ -67,4 +67,4 @@ keys.js
 *.sql
 
 #keyfile for googleStorage
-config/keyfile.json
+keyfile.json
