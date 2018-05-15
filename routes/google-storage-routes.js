@@ -1,6 +1,6 @@
 var multer = require('multer');
 var express = require("express");
-var path =  require("path");
+// var path =  require("path");
 var memoryStorage = multer.memoryStorage();
 // var upload = multer({ storage: storage });
 var storage = require("@google-cloud/storage");
