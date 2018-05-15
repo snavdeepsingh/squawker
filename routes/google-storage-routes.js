@@ -29,9 +29,9 @@ const bucket = googleCloudStorage.bucket(BucketName);
 module.exports = function (app){
 
     // Display a form for uploading files.
-app.get("/home", (req, res) => {
-    res.sendFile(path.join(`${__dirname}/index`));
-  });
+// app.get("/info", (req, res) => {
+//     res.sendFile(path.join(`${__dirname}/info`));
+//   });
   
   // Process the file upload and upload to Google Cloud Storage.
   app.post("/upload", upload.single("file"), (req, res, next) => {
