@@ -63,8 +63,8 @@ typings/
 # keys
 keys.js
 
-#keyfile for googleStorage
-config/keyfile.json
-
 #schema
 *.sql
+
+#keyfile for googleStorage
+config/keyfile.json
