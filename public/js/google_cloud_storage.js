@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
 var GoogleCloudStorage = Promise.promisifyAll(require('@google-cloud/storage'));
+var fileURL = require("./capture-button");
 
 var storage = GoogleCloudStorage({
   projectId: 'project_id',
@@ -26,7 +27,7 @@ file.existsAsync()
     
 // upload file to bucket
 // https://googlecloudplatform.github.io/google-cloud-node/#/docs/google-cloud/0.39.0/storage/bucket?method=upload
-let localFileLocation = 'file_path'
+let localFileLocation = fileURL;
 myBucket.uploadAsync(localFileLocation, { public: true })
   .then(file => {
     // file saved

@@ -46,9 +46,15 @@
 	<div class="row btn-container">
 		<div class="col align-self-center">
 			{{!-- <button type="button" class="btn btn-primary">Capture</button> --}}
-			<input type="file" accept="image/*" id="image-capture-button" class="invisible" />
+			{{!-- <input type="file" accept="image/*" id="image-capture-button" class="invisible" />
 			<br>
 			<label class="btn btn-info" for="image-capture-button">Capture</label>
+			 <div> --}}
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Upload Image" name="submit">
+    </form>
+  </div>
 		<div>
 	</div>
 </div>
