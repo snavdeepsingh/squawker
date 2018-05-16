@@ -60,8 +60,5 @@ typings/
 # next.js build output
 .next
 
-<<<<<<< HEAD
 # keys
-=======
->>>>>>> 5ce2a1410e5015d56adc68bbd11aa51d22e206aa
-keys.js
+.keys
