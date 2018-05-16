@@ -1,7 +1,28 @@
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<a href="/auth/google">Login</a>
+<div class="bg-img"></div>
+<div class="container-fluid login-container">
+	<div class="row login-row">
+		<div class="col align-self-center">
+			<div class="login-wrapper">
+				<h1 class="text-center"><i class="fas fa-crow"></i>&nbsp;App Name</h1>
+				<form class="login-form">
+				  <div class="form-group" style="text-align: left">
+				    <label for="inputEmail">Email address</label>
+				    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+				  </div>
+				  <div class="form-group" style="text-align: left">
+				    <label for="inputPassword">Password</label>
+				    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+				  </div>
+					<div class="btn-group" role="group" aria-label="First group">
+						<button type="button" class="btn login-btn">Sign Up</button>
+						<button type="button" class="btn login-btn">Log In</button>
+					</div>
+				</form>
+				<hr>
+				<a href="/auth/google">
+					<button class="btn login-btn">Login with Google</button>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
