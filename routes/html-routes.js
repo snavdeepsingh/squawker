@@ -45,7 +45,7 @@ module.exports = function(app) {
   	if (req.user){
   		let handleBarsObj = {
 	  		name: req.user.dataValues.username,
-	  		// image: req.user.dataValues.profileIMG,
+	  		image: req.user.dataValues.profileIMG,
 	  	}
 	    return res.render("info", handleBarsObj);
   	}
@@ -56,7 +56,7 @@ module.exports = function(app) {
   	if (req.user){
   		let handleBarsObj = {
 	  		name: req.user.dataValues.username,
-	  		// image: req.user.dataValues.profileIMG,
+	  		image: req.user.dataValues.profileIMG,
 	  		photos: fakePhotos
 	  	}
 	    return res.render("pictures", handleBarsObj);
@@ -69,7 +69,7 @@ module.exports = function(app) {
   	if (req.user){
   		let handleBarsObj = {
 	  		name: req.user.dataValues.username,
-	  		// image: req.user.dataValues.profileIMG,
+	  		image: req.user.dataValues.profileIMG,
 	  	}
 	    return res.render("home", handleBarsObj);
   	}
