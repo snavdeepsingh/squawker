@@ -4,6 +4,7 @@ var express = require("express");
 var memoryStorage = multer.memoryStorage();
 // var upload = multer({ storage: storage });
 var storage = require("@google-cloud/storage");
+var db = require('../models');
 
 // Instantiate a storage client
 const googleCloudStorage = storage({
@@ -35,6 +36,7 @@ module.exports = function (app){
   
   // Process the file upload and upload to Google Cloud Storage.
   app.post("/upload", upload.single("file"), (req, res, next) => {
+    console.log(req.user.dataValues.googleID);
     if (!req.file) {
       res.status(400).send("No file uploaded.");
       return;
@@ -63,7 +65,11 @@ module.exports = function (app){
       // Make the image public to the web (since we'll be displaying it in browser)
       blob.makePublic().then(() => {
         // res.status(200).send(`Success!\n Image uploaded to ${publicUrl}`);
-         return res.render("home");
+        // console.log("Hello" + db.User);
+        db.Image.create({
+          url: publicUrl,
+          UserId: req.user.dataValues.id
+        }).then(() => res.render("home"));
       });
     });
   
