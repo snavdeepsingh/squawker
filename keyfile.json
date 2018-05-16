@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "bird-203906",
+    "private_key_id": "cef5eaa35e936a7e825f0cf66cbeacdfb55b03e7",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC2Z84jqugI5s6r\nk2ykEHeitu8JlsqcpDHl2bvMdIjZt23bMvpZ7z2x5xth/wNXbpJh9UEnr9E9wXCv\nL2tm7WoCTsiQKOAP2AQOAhI9jNEdvJnkb6wa12mv8Us4R1C7PNelkB1j8mySN7ya\nYOQ7Ir4EeyJ+k607wPdFJCX6dwpQQvddlVUbSUpCZm8yggJ8mPyd1dWaODSQywfZ\nY2q/ZmvGeV6IxHOfLIYvPbXAF/9vqy5SO/tHA9s6ryC5zNUL2ueCoBWULAMdb8uT\nVdpQoNR753VR5iU71BlZIC/UZu7H/GS5J6NWwGhLxqPrV7nWv8u6ujtmTEvvX1rC\n+N5afKf1AgMBAAECggEADtT4BRxzi63A5mCxd9HC+J8pZr01MnGDgS4oQCLFsfZh\nX26QvtleSeYB6wECc4yRKJf5uVFpkTz2fbg8Yn0xnohrdJVuSruE8OKoOwsFQgbA\n+Ls/4lrbxCu5sxTRcrgqzNKgIS1oOKeBlYgFZu2XR+P/VQ2LC43QTXX4BJrDYu07\n55DHN5BX7E1vM+S9l1Sfu1D/2/U5k7yRQLrr2OrUBVAJKAOVp969zJU2jKZHqixH\n0LgsUGjOVQsWZGh7k0rHM4HzwX7AUc6GqJRD17bUASFJCg0ZwtctBhBZgBDv58Dz\n8vV7JgPnNsTViPCcKTQJ/7KXrDpvoBT1r35kYJlTwQKBgQDgFqBGF6iIzuRYunnn\nuqa0/rTyf9u1pwMvF+swfnrdobY+OGKd2T58STlO8TGwNNp2zNDdkvxNjmVbl5h6\n6YklzX2PgYE6q3hEoloegucygZA2w/0CpGyAAcjxzp/k2AXKtX5QXBhPBPImXNxQ\nl9R1Bk2FY7LmeV2y47EKt1628QKBgQDQYZYMQm+i6lbsqL73QNruCBtOYE1Wd1hA\npl4EvvEtxUIF15OSQajIQvjdqdJbsrktpi59OZJ+pN632d0dLu/ICPSiQBZyhkt6\nHCBFY245l1GFAu1S00/4Zh5u27jqrcW2UENVBV3qW7mGpZT2iZxBuXC6fIRcvbNd\nAW6+mLTpRQKBgDrItLKuch+xZmWARYpshF7mkkErGU/FyCgKdj/6bfDGAzC/Sd9u\npd2kt8vlqcs3kjen8wKtFFKkECK+2dkkej3Ych+7MVNat+oJTOrEHDI7msFDGJQg\n3fWWgkgsk/VMVfifM8uQ3S+ddIhrw7/AlJM+XAep57xeCh5rbH4LLGWBAoGAfRkY\nq2N3AacNaCYl/unAhQX43qSRyUb8hFNcPh0jTQcPC9LPlQ419YO/Q9Ofpc01vmH1\nptfZSo5P5q+0PsDe0ogN1RoEX9yfkz8vYHjAw3JETkXjk8WoTMeBnavq53hLKZgl\n0/TU3M0UI/Fj7F3QoORi+JGoJMT92OfzRBkJAsECgYBdzWwxTqgK3iBfB5BFaNb3\n68UUIujPKUa7JqCiZ9d3VDQZjBa3bOK9lwmZxr30f35Vh+Bwrz6YHlhE96+kP/Q7\nzoXzcsVKGs6Kt0I2S34JdU66Db3dvfx/R82y73h16l62vxG9djH5ZL141CZH0U5b\nr+pMXDnkN9sbZsvfPFLjzg==\n-----END PRIVATE KEY-----\n",
+    "client_email": "bird-db@bird-203906.iam.gserviceaccount.com",
+    "client_id": "114899822716663755506",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://accounts.google.com/o/oauth2/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bird-db%40bird-203906.iam.gserviceaccount.com"
+  }
+  
