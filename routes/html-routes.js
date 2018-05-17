@@ -20,17 +20,21 @@ module.exports = function(app) {
   })
 
   app.get('/photos', function(req, res) {
-    // give me photos from from '/api/photos'
-    let photos;
-  	if (req.user){
-  		let handleBarsObj = {
-	  		name: req.user.dataValues.username,
-	  		image: req.user.dataValues.profileIMG,
-	  		photos: photos
-	  	}
-	    return res.render("pictures", handleBarsObj);
-  	}
-  	return res.redirect('/')
+    if (req.user){
+      db.Image.findAll({
+        where: {
+          userId: req.user.dataValues.id
+        }
+      })
+      .then (photos => res.render("pictures", {
+        name: req.user.dataValues.username,
+        image: req.user.dataValues.profileIMG,
+        photos: photos
+      }))
+      .catch(err => res.redirect('/'))
+    } else {
+      return res.redirect('/')  
+    }
   })
 
   app.get("/home", function(req, res){

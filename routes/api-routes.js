@@ -1,6 +1,8 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
+	// Redundant...
   app.get("/api/photos", function(req, res) {
 
     db.Image.findAll({
