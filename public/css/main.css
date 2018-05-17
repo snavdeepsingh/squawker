@@ -22,7 +22,7 @@ Beige: 				#947839
 body {
 	font-family: "Brandon-Reg";
 	height: 100vh;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 h1 {
 	font-family: "Brandon-Black";
@@ -60,7 +60,7 @@ h1 {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 100vh;
+	height: calc(100vh - 66px);
 }
 .home-bg.loading {
 	background-image: none;
@@ -99,7 +99,7 @@ h1 {
 /*Results*/
 .results-bg {
 	background: #C4B78A;
-	height: 100vh;
+	height: calc(100vh - 66px);
 }
 .results-bg.complete {
 	background: #947839;
