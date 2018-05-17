@@ -1,3 +1,4 @@
+require("dotenv").config();
 var multer = require('multer');
 var express = require("express");
 // var path =  require("path");
