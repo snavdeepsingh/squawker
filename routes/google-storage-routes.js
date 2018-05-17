@@ -66,10 +66,20 @@ module.exports = function (app){
       blob.makePublic().then(() => {
         // res.status(200).send(`Success!\n Image uploaded to ${publicUrl}`);
         // console.log("Hello" + db.User);
-        db.Image.create({
-          url: publicUrl,
-          UserId: req.user.dataValues.id
-        }).then(() => res.render("home"));
+        db.Image.findOrCreate({
+          where: {
+            url: publicUrl,
+            UserId: req.user.dataValues.id
+          }
+        })
+        .then(() => {
+          let handleBarsObj = {
+            name: req.user.dataValues.username,
+            image: req.user.dataValues.profileIMG,
+            lastPictureSrc: publicUrl,
+          };
+          res.render("results", handleBarsObj)
+        });
       });
     });
   

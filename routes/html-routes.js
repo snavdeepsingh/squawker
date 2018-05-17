@@ -65,7 +65,6 @@ module.exports = function(app) {
   })
 
   app.get("/home", function(req, res){
-  	// console.log(req.user.dataValues)
   	if (req.user){
   		let handleBarsObj = {
 	  		name: req.user.dataValues.username,
