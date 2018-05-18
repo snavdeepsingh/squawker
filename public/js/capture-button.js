@@ -1,57 +1,43 @@
 $(function() {
 
-    function postImageToPage(fileList) {
-        // console.log("postImageToPage fired!");
+  // Preview function should we need it...
 
-        let file = null;
-    
-        for (let i = 0; i < fileList.length; i++) {
-            if (fileList[i].type.match(/^image\//)) {
-                file = fileList[i];
-                break;
-            }
-        }
-        console.log("-file-");
-        console.log(file);
-    
-        if (file !== null) {
-            // console.log("-URL.createObjectURL(file)-");            
-            // console.log(URL.createObjectURL(file));
-        //    var fileURL = URL.createObjectURL(file);
-            fetch("https://storage.googleapis.com/snavdeepsingh/", {
-                method: "POST",
-                body: file
-            }).then(
-                response => response.json() // if the response is a JSON object
-              ).then(
-                success => console.log(success) // Handle the success response object
-              ).catch(
-                error => console.log(error) // Handle the error response object
-              );
+  function previewFile(){
+    let submitBtn = document.querySelector('.btn-container');
+    let background = document.querySelector('.home-bg');
+    let preview = document.querySelector('#image-preview');
+    let file    = document.querySelector('input[type=file]').files[0];
+    let reader  = new FileReader();
+    let homeText = document.querySelector('#home-text');
+    let loadingText = document.querySelector('#loading-text');
 
-            // post pic to: <img id="output" />
-            // $("#output")
-            //     .attr("src", URL.createObjectURL(file))
-            //     .width("150px")
-            //     .height("150px");
-            // console.log(fileURL);
-            // return fileURL;
-        }
-    // END OF: function postImageToPage(fileList) {
-    };
+    reader.onloadend = function () {
+      preview.src = reader.result;
+    }
 
-    $("#image-capture-button").change(function(event) {
-        // console.log("image-capture fired!");
-        
-        var fileList  = event.target.files;
+    if (file) {
+      reader.readAsDataURL(file);
+      homeText.innerText = '';
+      loadingText.innerText = 'Loading...';
+      submitBtn.classList.add('hidden');
+      background.classList.add('loading');
+    } else {
+      preview.src = "";
+      loadingText.innerText = '';
+      homeText.innerText = 'WELCOME'
+      submitBtn.classList.remove('hidden');
+      background.classList.remove('loading');
+    }
+  }
 
-        console.log("-fileList-");
-        console.log(fileList);
+  $('.btn-camera').on('click', function(e) {
+    e.preventDefault();
+    $('#image-capture-button').click();
+  })
 
+  $("#image-capture-button").change(function(event) {
+    previewFile();
+    $('#image-submit-button').click();
+  });
 
-        postImageToPage(fileList);
-    //END OF: $("#image-capture-input").change(function(event) {
-    });
-
-// END OF: $(function() {
 });

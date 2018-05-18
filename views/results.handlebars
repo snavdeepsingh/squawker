@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar mb-auto navbar-expand-lg navbar-dark bg-dark">
   <a href="/home">
     {{#if image}}
   	  <img 
@@ -24,7 +24,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+    	<li class="nav-item">
         <a class="nav-link" href="/info">How it works</a>
       </li>
       <li class="nav-item">
@@ -37,14 +37,27 @@
   </div>
 </nav>
 
-<div class="container">
-	<div class="row">
-			{{#each photos}}
-				<div class="col-md-3 col-sm-4 col-xs-6 bird-photo-wrapper">
-					<img src={{url}} class="bird-photo"/>
-				</div>
-			{{else}}
-				<p>No Photos</p>
-			{{/each}}
-	</div>
+<div class="container-fluid results-bg">
+  <div class="container">
+    <div class="row results-row align-items-center">
+      <div class="col-12">
+        <div class="row">
+          <img src={{lastPictureSrc}} alt="error" style="margin: 0 auto;"/>
+        </div>
+        <br />
+        <div class="row">
+          <h3 style="margin: 0 auto; color: #fff">Found Results!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+  function changeBG() {
+    setTimeout(() => {
+      document.querySelector('.results-bg').classList.add('complete')
+    }, 200)
+  };
+  changeBG();
+</script>
