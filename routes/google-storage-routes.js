@@ -24,6 +24,7 @@ module.exports = function (app){
   app.post("/upload", upload.single("file"), (req, res, next) => {
     // console.log(req.user.dataValues.googleID);
     // console.log(req.user);
+    console.log("red wine");
     console.log(req.file);    
     
     if (!req.file) {
