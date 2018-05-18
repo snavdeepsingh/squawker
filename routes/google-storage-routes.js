@@ -1,5 +1,6 @@
 var multer = require('multer');
 var express = require("express");
+var keys = require("../config/keys.js");
 // var path =  require("path");
 var memoryStorage = multer.memoryStorage();
 // var upload = multer({ storage: storage });
@@ -23,7 +24,8 @@ const upload = multer({
     fileSize: 5 * 1024 * 1024 // no larger than 5mb
   }
 });
-var BucketName = "snavdeepsingh"
+// var BucketName = "snavdeepsingh"
+var BucketName = keys.storageBucket.userBucket;
 // A bucket is a container for objects (files).
 const bucket = googleCloudStorage.bucket(BucketName);
 
