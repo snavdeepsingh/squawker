@@ -36,7 +36,10 @@ module.exports = function (app){
   
   // Process the file upload and upload to Google Cloud Storage.
   app.post("/upload", upload.single("file"), (req, res, next) => {
-    console.log(req.user.dataValues.googleID);
+    // console.log(req.user.dataValues.googleID);
+    // console.log(req.user);
+    console.log(req.file);    
+    
     if (!req.file) {
       res.status(400).send("No file uploaded.");
       return;
@@ -69,7 +72,17 @@ module.exports = function (app){
         db.Image.create({
           url: publicUrl,
           UserId: req.user.dataValues.id
-        }).then(() => res.render("home"));
+        }).then(() => res.render("home"))
+        // .then( function() {
+        //   $("#image-capture-submit").on("click", function(event) {
+        //     $("#bird-pic")
+        //         .attr("src", publicUrl)
+        //         .width("150px")
+        //         .height("150px");
+
+
+          })
+        });
       });
     });
   

@@ -1,40 +1,29 @@
 <nav class="navbar mb-auto navbar-expand-lg navbar-dark bg-dark">
-  <a href="/home">
-    {{#if image}}
-  	  <img 
-  	  	src={{image}} 
-  	  	style="border-radius: 50%"
-  	  />
-  	{{else}}
-  		<div class="navbar-brand">{{name}}</div>
-    {{/if}}
-  </a>
-  
-  <button 
-  	class="navbar-toggler" 
-  	type="button" 
-  	data-toggle="collapse" 
-  	data-target="#navbarSupportedContent" 
-  	aria-controls="navbarSupportedContent" 
-  	aria-expanded="false" 
-  	aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	<a href="/home">
+		{{#if image}}
+		<img src={{image}} style="border-radius: 50%" /> {{else}}
+		<div class="navbar-brand">{{name}}</div>
+		{{/if}}
+	</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-    	<li class="nav-item">
-        <a class="nav-link" href="/info">How it works</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/photos">Photos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log Out</a>
-      </li>
-    </ul>
-  </div>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+	  aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="/info">How it works</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/photos">Photos</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Log Out</a>
+			</li>
+		</ul>
+	</div>
 </nav>
 
 <div class="container">
@@ -42,21 +31,37 @@
 		<div class="col align-self-center">
 			<h1>WELCOME</h1>
 		</div>
+
+		<div class="col align-self-center">
+			<img id="bird-pic">
+		</div>
 	</div>
 	<div class="row btn-container">
 		<div class="col align-self-center">
-			{{!-- <button type="button" class="btn btn-primary">Capture</button> --}}
-			{{!-- <input type="file" accept="image/*" id="image-capture-button" class="invisible" />
+			{{!--
+			<button type="button" class="btn btn-primary">Capture</button> --}} {{!--
+			<input type="file" accept="image/*" id="image-capture-button" class="invisible" />
 			<br>
-			<label class="btn btn-info" for="image-capture-button">Capture</label>
-			 <div> --}}
-    <form action="/upload" method="post" enctype="multipart/form-data">
-      <input type="file" name="file">
-      <input type="submit" value="Upload Image" name="submit">
-    </form>
-  </div>
-			<button type="button" class="btn btn-success btn-lg btn-camera">
-        <i class="fas fa-camera"></i>
-      </button>
+			<label class="btn btn-info" for="image-capture-button">Capture</label>  --}}
+			<div>
+				<form action="/upload" method="post" enctype="multipart/form-data">
+					{{!--
+					<input type="file" name="file"> --}}
+					<input type="file" name="file" accept="image/*" id="image-capture-select" class="invisible" />
+					<label for="image-capture-select" class="btn btn-info">
+						<i class="fas fa-camera"></i>
+					</label>
+
+					{{!--
+					<input type="submit" value="Upload Image" name="submit"> --}}
+					<input type="submit" id="image-capture-submit" value="Upload Image" name="submit" class="invisible">
+					<label for="image-capture-submit" class="btn btn-info">Submit</label>
+				</form>
+				{{!--
+				<button type="button" class="btn btn-success btn-lg btn-camera">
+					<i class="fas fa-camera"></i>
+				</button> --}}
+			</div>
+		</div>
 	</div>
 </div>
