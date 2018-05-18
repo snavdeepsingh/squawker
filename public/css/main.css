@@ -20,19 +20,18 @@ Beige: 				#947839
 	src: url('../fonts/Brandon_reg.otf');
 }
 body {
-	background-image: url('https://images.pexels.com/photos/326900/pexels-photo-326900.jpeg?auto=compress&cs=tinysrgb&h=350a');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-
 	font-family: "Brandon-Reg";
-	min-height: 100vh;
+	height: 100vh;
+	/*overflow: hidden;*/
 }
 h1 {
 	font-family: "Brandon-Black";
 }
 .navbar {
 	z-index: 1000;
+}
+.hidden {
+	display: none;
 }
 
 /*Landing Page*/
@@ -56,24 +55,26 @@ h1 {
 
 
 /*Home*/
-.title-container {
-	position: absolute;
-	margin: 0!important;
-	left: 0;
-	top: 50%;
-	width: 100%;
-	text-align: center;
+.home-bg {
+	background-image: url('https://images.pexels.com/photos/326900/pexels-photo-326900.jpeg?auto=compress&cs=tinysrgb&h=350a');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: calc(100vh - 66px);
 }
-.title-container h1 {
+.home-bg.loading {
+	background-image: none;
+	background: #C4B78A;
+}
+.home-row {
 	color: #fff;
-}
-.btn-container {
-	position: absolute;
-	margin: 0!important;
-	left: 0;
-	bottom: 5%;
-	width: 100%;
+	height: calc(100vh - 66px);
 	text-align: center;
+}
+.home-row img {
+	height: 200px;
+	object-fit: contain;
+	border-radius: 5px;
 }
 .btn-camera {
   padding: 0 20px 0 20px;
@@ -93,6 +94,27 @@ h1 {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+}
+
+/*Results*/
+.results-bg {
+	background: #C4B78A;
+	height: calc(100vh - 66px);
+}
+.results-bg.complete {
+	background: #947839;
+
+	-webkit-transition: all 1s linear;
+	transition: all 1s linear;
+}
+.results-row {
+	height: calc(100vh - 66px);
+	text-align: center;
+}
+.results-row img {
+	height: 200px;
+	object-fit: contain;
+	border-radius: 5px;
 }
 
 /*QUERIES*/
