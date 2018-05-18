@@ -6,7 +6,8 @@ var db = require('../models');
 var keys = require("../config/keys");
 
 const googleCloudStorage = storage({
-  projectId: "proj0524-birdapp",
+  // projectId: "Bird",
+  projectId: "proj0524-birdapp",  
   keyFilename: "keyfile.json"
 });
 const upload = multer({
@@ -15,6 +16,7 @@ const upload = multer({
     fileSize: 5 * 1024 * 1024
   }
 });
+// var BucketName = "snavdeepsingh"
 var BucketName = keys.google_cloud_bucket_name
 const bucket = googleCloudStorage.bucket(BucketName);
 
