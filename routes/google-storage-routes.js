@@ -8,7 +8,7 @@ var keys = require('../config/keys.js');
 const googleCloudStorage = storage({
   projectId: "Bird",
   private_key: keys.keyFile.private_key,
-  client_email: keys.kyFile.client_email
+  client_email: keys.keyFile.client_email
 });
 const upload = multer({
   storage: memoryStorage,
