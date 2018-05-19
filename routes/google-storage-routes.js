@@ -3,10 +3,12 @@ var express = require("express");
 var memoryStorage = multer.memoryStorage();
 var storage = require("@google-cloud/storage");
 var db = require('../models');
+var keys = require('../config/keys.js');
 
 const googleCloudStorage = storage({
   projectId: "Bird",
-  keyFilename: "keyfile.json"
+  private_key: keys.keyFile.private_key,
+  client_email: keys.kyFile.client_email
 });
 const upload = multer({
   storage: memoryStorage,
