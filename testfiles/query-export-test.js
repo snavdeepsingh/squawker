@@ -1,4 +1,4 @@
-const visionAPI = require('./vision-api')
+const visionAPI = require('../routes/vision-api')
 
 console.log(JSON.stringify(visionAPI.reqObj, undefined, 2))
 console.log(visionAPI.visionQuery)
