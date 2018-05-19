@@ -1,0 +1,329 @@
+[
+  {
+    "labelAnnotations": [
+      {
+        "mid": "/m/015p6",
+        "description": "bird",
+        "score": 0.97796315,
+        "topicality": 0.97796315
+      },
+      {
+        "mid": "/m/0fp7c",
+        "description": "hawk",
+        "score": 0.967318,
+        "topicality": 0.967318
+      },
+      {
+        "mid": "/m/0f6x8",
+        "description": "bird of prey",
+        "score": 0.89610964,
+        "topicality": 0.89610964
+      },
+      {
+        "mid": "/m/01c4rd",
+        "description": "beak",
+        "score": 0.8905811,
+        "topicality": 0.8905811
+      },
+      {
+        "mid": "/m/0f6wt",
+        "description": "falcon",
+        "score": 0.8898449,
+        "topicality": 0.8898449
+      },
+      {
+        "mid": "/m/035qhg",
+        "description": "fauna",
+        "score": 0.87509394,
+        "topicality": 0.87509394
+      },
+      {
+        "mid": "/m/01g4rl",
+        "description": "buzzard",
+        "score": 0.7803204,
+        "topicality": 0.7803204
+      },
+      {
+        "mid": "/m/01d64p",
+        "description": "accipitriformes",
+        "score": 0.7179524,
+        "topicality": 0.7179524
+      },
+      {
+        "mid": "/m/09csl",
+        "description": "eagle",
+        "score": 0.67562145,
+        "topicality": 0.67562145
+      },
+      {
+        "mid": "/m/01280g",
+        "description": "wildlife",
+        "score": 0.53671026,
+        "topicality": 0.53671026
+      }
+    ],
+    "webDetection": {
+      "webEntities": [
+        {
+          "entityId": "/m/015p6",
+          "score": 0.98475,
+          "description": "Bird"
+        },
+        {
+          "entityId": "/m/02vz57",
+          "score": 0.79068005,
+          "description": "Harris's hawk"
+        },
+        {
+          "entityId": "/m/0fp7c",
+          "score": 0.703,
+          "description": "Hawk"
+        },
+        {
+          "entityId": "/m/0m15h",
+          "score": 0.66506004,
+          "description": "Accipitridae"
+        },
+        {
+          "entityId": "/m/09csl",
+          "score": 0.5636,
+          "description": "Eagle"
+        },
+        {
+          "entityId": "/m/0f6x8",
+          "score": 0.5574,
+          "description": "Bird of prey"
+        },
+        {
+          "entityId": "/m/0204xg",
+          "score": 0.51909,
+          "description": "Red-shouldered hawk"
+        },
+        {
+          "entityId": "/m/02vtvx_",
+          "score": 0.4594,
+          "description": "Vermilion cardinal"
+        },
+        {
+          "entityId": "/g/1211j9yp",
+          "score": 0.4464,
+          "description": "Falcon"
+        },
+        {
+          "entityId": "/m/02vttch",
+          "score": 0.4414,
+          "description": "Buffy hummingbird"
+        }
+      ],
+      "fullMatchingImages": [
+        {
+          "url": "https://wallscover.com/images/harriss-hawk-wallpaper-3.jpg"
+        },
+        {
+          "url": "http://4.bp.blogspot.com/-fNYPq0df-50/U37FI3OierI/AAAAAAAAAeU/iq-AC7-V9qQ/s1600/harris01.jpg"
+        },
+        {
+          "url": "https://camo.derpicdn.net/783075286a10f5d5276dbfd02d744615f5d8bf4d?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fed%2F7e%2Fd2%2Fed7ed229786865709782100ca38c2157--chile-for-the-birds.jpg"
+        },
+        {
+          "url": "https://katharineedgar.files.wordpress.com/2014/06/harriss_hawk_parabuteo_unicinctus_3_of_4_in_set.jpg"
+        },
+        {
+          "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/560px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/400px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+        },
+        {
+          "url": "https://skvarlafalconry.files.wordpress.com/2013/11/400px-harriss_hawk_parabuteo_unicinctus_3_of_4_in_set.jpg?w=500"
+        },
+        {
+          "url": "https://theoracleempath.files.wordpress.com/2014/09/harriss_hawk_.jpg"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/300px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+        },
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/290px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+        }
+      ],
+      "partialMatchingImages": [
+        {
+          "url": "https://animalreader.ru/wp-content/uploads/2016/09/Harriss_Hawk_Parabuteo_unicinctus_3_of_4_in_set.jpg"
+        },
+        {
+          "url": "http://halconerosdearagon.com/wp-content/uploads/2014/01/Aguila-Harris-3.jpg"
+        },
+        {
+          "url": "https://i.pinimg.com/736x/ef/33/13/ef3313d5fe7e18cca2197d239043e3fb--chile-for-the-birds.jpg"
+        },
+        {
+          "url": "http://www.baiven.com/uploads/allimg/c160419/1461003314A420-3NL.jpg"
+        },
+        {
+          "url": "https://www.birdingbuddies.com/cdn/public/media/images/large/web/31815_image1.jpg"
+        },
+        {
+          "url": "https://image.slidesharecdn.com/revistadiariodecetrerian3-170223221707/95/revista-dirio-de-falcoaria-n-3-27-638.jpg?cb=1487888645"
+        },
+        {
+          "url": "https://i.pinimg.com/736x/06/16/cb/0616cb67d9cc317a4297d1e35a056062--chile-for-the-birds.jpg"
+        },
+        {
+          "url": "http://edomexinforma.com/wp-content/uploads/2017/06/Especies-liberadas.jpg"
+        },
+        {
+          "url": "http://cdn1.litlepups.net/resize/2017/02/21/medium-beautiful-black-falcon.jpg"
+        },
+        {
+          "url": "http://tetonraptorcenter.org/assets/image-cache/media/images/raptor-profiles/haha_courtesy_of_commons.wikipedia.org.80424ba1.jpg"
+        }
+      ],
+      "pagesWithMatchingImages": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Harris%27s_hawk",
+          "pageTitle": "Harris&#39;s hawk - Wikipedia",
+          "fullMatchingImages": [
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            },
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/220px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            }
+          ]
+        },
+        {
+          "url": "http://www.uniprot.org/taxonomy/223492",
+          "pageTitle": "<b>Parabuteo unicinctus</b> (Harris&#39;s hawk) (Falco unicinctus) - UniProt",
+          "fullMatchingImages": [
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/400px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            }
+          ]
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Harris%27s_Hawk_(Parabuteo_unicinctus)_3_of_4_in_set.jpg",
+          "pageTitle": "File:Harris&#39;s Hawk (<b>Parabuteo unicinctus</b>) 3 of 4 in set.jpg ...",
+          "fullMatchingImages": [
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/400px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            }
+          ]
+        },
+        {
+          "url": "http://www.wikiwand.com/en/Harris%27s_hawk",
+          "pageTitle": "Harris&#39;s hawk - Wikiwand",
+          "fullMatchingImages": [
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/640px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            },
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/300px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            },
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/213px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            },
+            {
+              "url": "http://upload.wikimedia.org/wikipedia/commons/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            }
+          ]
+        },
+        {
+          "url": "https://www.pinterest.co.uk/pin/474918723187442428/",
+          "pageTitle": "Águila Harris - <b>Parabuteo Unicinctus</b> | Águilas | Pinterest",
+          "partialMatchingImages": [
+            {
+              "url": "https://i.pinimg.com/originals/bf/34/6e/bf346e11fef9c15f91061175aa5a1a13.jpg"
+            }
+          ]
+        },
+        {
+          "url": "https://wikivisually.com/wiki/Parabuteo",
+          "pageTitle": "<b>Parabuteo</b> - WikiVisually",
+          "fullMatchingImages": [
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/300px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            },
+            {
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/220px-Harris%27s_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            }
+          ]
+        },
+        {
+          "url": "http://www.popflock.com/learn?s=Parabuteo",
+          "pageTitle": "<b>Parabuteo</b> Resource | Learn About, Share and Discuss <b>Parabuteo</b> ...",
+          "fullMatchingImages": [
+            {
+              "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Harris's_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg/220px-Harris's_Hawk_%28Parabuteo_unicinctus%29_3_of_4_in_set.jpg"
+            }
+          ]
+        },
+        {
+          "url": "https://www.kaieteurnewsonline.com/category/features-columnists/interesting-creatures-in-guyana/page/2/",
+          "pageTitle": "Interesting Creatures in Guyana – Kaieteur News - Page 2",
+          "partialMatchingImages": [
+            {
+              "url": "https://www.kaieteurnewsonline.com/images/2017/09/Harriss-hawk-415x260.jpg"
+            }
+          ]
+        },
+        {
+          "url": "https://www.pinterest.com/tehaya/harris-hawk/",
+          "pageTitle": "31 best Harris Hawk images on Pinterest | Harris hawk, Falcons and ...",
+          "partialMatchingImages": [
+            {
+              "url": "https://i.pinimg.com/736x/ef/33/13/ef3313d5fe7e18cca2197d239043e3fb--chile-for-the-birds.jpg"
+            }
+          ]
+        },
+        {
+          "url": "http://www.brit-ishbirds.uk/species_accounts/harriss_hawk.html",
+          "pageTitle": "Brit-ish Birds - Harris&#39;s Hawk",
+          "fullMatchingImages": [
+            {
+              "url": "http://www.brit-ishbirds.uk/images/harris_hawk.jpg"
+            }
+          ]
+        }
+      ],
+      "visuallySimilarImages": [
+        {
+          "url": "http://l450v.alamy.com/450v/cff9b1/harriss-hawk-parabuteo-unicinctus-perched-in-ocotillo-bush-arizona-cff9b1.jpg"
+        },
+        {
+          "url": "https://media.gettyimages.com/photos/harriss-hawkparabuteo-unicinctus-juvenile-martin-refuge-near-edinburg-picture-id187134324"
+        },
+        {
+          "url": "https://media.gettyimages.com/photos/harriss-hawk-parabuteo-unicinctus-perched-on-branch-texas-usa-picture-id139821065?s=170667a"
+        },
+        {
+          "url": "https://media.gettyimages.com/photos/harriss-hawk-parabuteo-unicinctus-perched-on-branch-texas-usa-picture-id139821064"
+        },
+        {
+          "url": "http://l7.alamy.com/zooms/32250ab819c644349461f8df042ebda4/harris-hawk-pair-parabuteo-unicinctus-dyd4bn.jpg"
+        },
+        {
+          "url": "http://www.ramonmollerjensen.com/data/media/40/161Gaviln_Mixto_Parabuteo_unicinctus_501.jpg"
+        },
+        {
+          "url": "https://l7.alamy.com/zooms/0a97f45a602c40d3bf7af65f76c49486/harriss-hawk-parabuteo-unicinctus-perched-on-tree-branch-db4ftt.jpg"
+        },
+        {
+          "url": "https://us.123rf.com/450wm/mikelane45/mikelane451312/mikelane45131201845/24654777-harris-hawk-parabuteo-unicinctus-single-bird-on-branch-falconry-bird-with-jessies-on-legs-.jpg?ver=6"
+        },
+        {
+          "url": "https://www.sdakotabirds.com/species_photos/raptors/harris_hawk_5.jpg"
+        },
+        {
+          "url": "http://l7.alamy.com/zooms/d4caeb62d1fe43ed8017360418a8c5c8/perched-lookout-harris-hawk-parabuteo-unicinctus-also-bay-winged-hawk-hj81wd.jpg"
+        }
+      ],
+      "bestGuessLabels": [
+        {
+          "label": "parabuteo unicinctus",
+          "languageCode": "en"
+        }
+      ]
+    }
+  }
+]
