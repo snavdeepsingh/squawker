@@ -1,12 +1,15 @@
+require('dotenv').config();
 var multer = require('multer');
 var express = require("express");
 var memoryStorage = multer.memoryStorage();
 var storage = require("@google-cloud/storage");
 var db = require('../models');
+var keys = require("../config/keys.js");
 
 const googleCloudStorage = storage({
   projectId: "Bird",
-  keyFilename: "keyfile.json"
+  // keyFilename: "keyfile.json"
+  credentials: JSON.parse(process.env.GOOGLE_KEY_FILE_JSON)
 });
 const upload = multer({
   storage: memoryStorage,
@@ -14,7 +17,7 @@ const upload = multer({
     fileSize: 5 * 1024 * 1024
   }
 });
-var BucketName = "snavdeepsingh"
+var BucketName = keys.storageBucket.BucketName;
 const bucket = googleCloudStorage.bucket(BucketName);
 
 module.exports = function (app){
