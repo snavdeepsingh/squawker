@@ -1,22 +1,22 @@
 <nav class="navbar mb-auto navbar-expand-lg navbar-dark bg-dark">
   <a href="/home">
     {{#if image}}
-  	  <img 
-  	  	src={{image}} 
+  	  <img
+  	  	src={{image}}
   	  	style="border-radius: 50%"
   	  />
   	{{else}}
   		<div class="navbar-brand">{{name}}</div>
     {{/if}}
   </a>
-  
-  <button 
-  	class="navbar-toggler" 
-  	type="button" 
-  	data-toggle="collapse" 
-  	data-target="#navbarSupportedContent" 
-  	aria-controls="navbarSupportedContent" 
-  	aria-expanded="false" 
+
+  <button
+  	class="navbar-toggler"
+  	type="button"
+  	data-toggle="collapse"
+  	data-target="#navbarSupportedContent"
+  	aria-controls="navbarSupportedContent"
+  	aria-expanded="false"
   	aria-label="Toggle navigation"
   >
     <span class="navbar-toggler-icon"></span>
@@ -43,6 +43,9 @@
       <div class="col-12">
         <div class="row">
           <img src={{lastPictureSrc}} alt="error" style="margin: 0 auto;"/>
+          <div class="query-results">
+            {{resultsInfo}}
+          </div>
         </div>
         <br />
         <div class="row">

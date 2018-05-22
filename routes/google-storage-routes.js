@@ -3,6 +3,7 @@ var express = require("express");
 var memoryStorage = multer.memoryStorage();
 var storage = require("@google-cloud/storage");
 var db = require('../models');
+const visionAPI = require('./vision-api')
 
 const googleCloudStorage = storage({
   projectId: "Bird",
@@ -30,16 +31,16 @@ module.exports = function (app){
         contentType: req.file.mimetype
       }
     });
-  
+
     blobStream.on("error", err => {
       next(err);
       return;
     });
-  
+
     blobStream.on("finish", () => {
-      
+
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
-  
+
       blob.makePublic().then(() => {
         db.Image.findOrCreate({
           where: {
@@ -48,18 +49,26 @@ module.exports = function (app){
           }
         })
         .then(() => {
+          visionAPI.reqObj.requests[0].image.source.imageUri = publicUrl
+          console.log(visionAPI.reqObj.requests[0].image.source.imageUri)
+
+          return visionAPI.visionQuery(visionAPI.apiCall, visionAPI.reqObj)
+
+        }).then((visionQueryResults) => {
+          console.log(visionQueryResults)
+
           let handleBarsObj = {
             name: req.user.dataValues.username,
             image: req.user.dataValues.profileIMG,
             lastPictureSrc: publicUrl,
-          };
+            resultsInfo: JSON.stringify(visionQueryResults[0].labelAnnotations)
+          }
           res.render("results", handleBarsObj)
-        });
+        }).catch(e => console.log(e))
       });
     });
-  
+
     blobStream.end(req.file.buffer);
   });
 
 }
-
