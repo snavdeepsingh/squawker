@@ -22,12 +22,15 @@ const bucket = googleCloudStorage.bucket(BucketName);
 
 module.exports = function (app){
   app.post("/upload", upload.single("file"), (req, res, next) => {
-    console.log(req.user.dataValues.googleID);
+    // console.log(req.user.dataValues.googleID);
+    // console.log("THis is Date!!!!!!!!!!",Date.now());
+    // console.log("this is req.file!!!!!!!!!!", req.file);
     if (!req.file) {
       res.status(400).send("No file uploaded.");
       return;
     }
-    const blob = bucket.file(req.file.originalname);
+    var date = Date.now();
+    const blob = bucket.file(date+req.file.originalname);
     const blobStream = blob.createWriteStream({
       metadata: {
         contentType: req.file.mimetype
@@ -42,6 +45,7 @@ module.exports = function (app){
     blobStream.on("finish", () => {
       
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+
   
       blob.makePublic().then(() => {
         db.Image.findOrCreate({
