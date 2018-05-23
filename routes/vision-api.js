@@ -34,10 +34,16 @@ module.exports.reqObj = {
 }
 
 module.exports.visionQuery = function (apiCall, reqObj) {
-  axios.post(apiCall, reqObj)
-    .then((response) => {
-      console.log(JSON.stringify(response.data.responses, undefined, 2));
-  }).catch((e) => {
-    console.log(e.response);
-  });
+  return new Promise((resolve, reject) => {
+    axios.post(apiCall, reqObj)
+      .then((response) => {
+        console.log(JSON.stringify(response.data.responses, undefined, 2));
+        // console.log(response.data.responses);
+
+        return resolve(response.data.responses)
+    }).catch((e) => {
+        // console.log(e.response);
+        return reject(e.response)
+    });
+  })
 }

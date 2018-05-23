@@ -112,9 +112,12 @@ h1 {
 	text-align: center;
 }
 .results-row img {
-	height: 200px;
 	object-fit: contain;
 	border-radius: 5px;
+	width: 100%;
+}
+.results-row button {
+	text-align: center;
 }
 
 /*QUERIES*/
