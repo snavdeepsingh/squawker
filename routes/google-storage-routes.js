@@ -5,6 +5,8 @@ var storage = require("@google-cloud/storage");
 var db = require('../models');
 var Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+
+var searchImages = require('../public/js/searchImages')
 const visionAPI = require('./vision-api');
 
 const googleCloudStorage = storage({
@@ -62,18 +64,16 @@ module.exports = function (app){
             birdNames.push(labelAnnotation.description);
           })
           if (birdNames.includes('fauna') || birdNames.includes('bird')) {
+            let newBirdNames = [];
+            visionQueryResults[0].webDetection.webEntities.forEach(entity => {
+              if (entity.description && entity.description.toLowerCase() !== 'bird' && entity.description.toLowerCase() !== 'hawk' && entity.description.toLowerCase() !== 'eagle' && entity.description.toLowerCase() !== 'fauna')
+                newBirdNames.push(entity.description)
+            })
             if (visionQueryResults[0].webDetection.fullMatchingImages || visionQueryResults[0].webDetection.partialMatchingImages) {
-              let newBirdNames = [];
-              visionQueryResults[0].webDetection.webEntities.forEach(entity => {
-                if (entity.description)
-                  newBirdNames.push(entity.description)
-              })
-              console.log(newBirdNames)
-              db.BirdNameMaster.find({
+              console.log(newBirdNames);
+              db.BirdNameMaster.findOne({
                 where: {
-                  BirdName : {
-                    [Op.regexp] : `(${newBirdNames.join('|')})`
-                  }
+                  BirdName : newBirdNames[0],
                 }
               }).then((data) => {
                 res.render("results", {
@@ -83,15 +83,22 @@ module.exports = function (app){
                   birdType: data.dataValues.BirdName,
                   similarImage: (visionQueryResults[0].webDetection.fullMatchingImages ? visionQueryResults[0].webDetection.fullMatchingImages[0].url :visionQueryResults[0].webDetection.partialMatchingImages[0].url),
                 })
-                console.log(res)
+              }).catch(err => {
+                res.render("tryAgain", {
+                  name: req.user.dataValues.username,
+                  image: req.user.dataValues.profileIMG,
+                  lastPictureSrc: publicUrl
+                })
               })
             } else if (visionQueryResults[0].webDetection.visuallySimilarImages) {
+              let birdInfo = searchImages(visionQueryResults[0].webDetection.visuallySimilarImages, newBirdNames);
+              console.log(birdInfo)
               res.render("results", {
                 name: req.user.dataValues.username,
                 image: req.user.dataValues.profileIMG,
-                lastPictureSrc: publicUrl
-                // birdType: birdInfo
-                // similarImage: birdInfo
+                lastPictureSrc: publicUrl,
+                birdType: birdInfo.birdType,
+                similarImage: birdInfo.similarImage
               })
             }
           } else {
