@@ -1,6 +1,6 @@
 let webEntities = [
   { "entityId": "/m/015p6", "score": 0.9654, "description": "Bird" },
-  { "entityId": "/m/02vz57", "score": 0.79145, "description": "Harris hawk" },
+  { "entityId": "/m/02vz57", "score": 0.79145, "description": "Harris's hawk" },
   { "entityId": "/m/01_xsj", "score": 0.7711, "description": "Red-tailed hawk" },
   { "entityId": "/m/0fp7c", "score": 0.7064, "description": "Hawk" },
   { "entityId": "/m/0m15h", "score": 0.7052, "description": "Accipitridae" },
@@ -12,6 +12,36 @@ let webEntities = [
 ]
 
 let matchingDBNamesArray = ['Harris hawk', 'Red-tailed hawk', 'Barn Swallow', 'Red-shouldered hawk']
+let matchingDBNamesObj = [
+  {
+    dataValues: {
+      id: 4312, BirdName: 'Harris\'s Hawk'
+    }
+  },
+  {
+    dataValues: {
+      id: 7290, BirdName: 'Red-shouldered Hawk'
+    }
+  },
+  {
+    dataValues: {
+      id: 7303, BirdName: 'Red-tailed Hawk'
+    }
+  },
+]
+
+let objectToArray = []
+matchingDBNamesObj.forEach(e => objectToArray.push(e.dataValues.BirdName))
+
+for (let i = 0; i < objectToArray.length; i++) {
+  console.log(objectToArray[i])
+  webEntities[1].description
+  console.log(objectToArray[i].match(/webEntities[1].description/i));
+  if (objectToArray[i].match(/${webEntities[0].description}/i)) {
+    console.log("Here: " + objectToArray[i]);
+  }
+}
+
 
 // Filter the matching names from the bird name database with the descriptions and then map to new array of objects with only descriptions & scores
 let filteredArray = webEntities.filter(entity => {

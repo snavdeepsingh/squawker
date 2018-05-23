@@ -70,20 +70,44 @@ module.exports = function (app){
                 newBirdNames.push(entity.description)
             })
             if (visionQueryResults[0].webDetection.fullMatchingImages || visionQueryResults[0].webDetection.partialMatchingImages) {
-              console.log(newBirdNames);
-              db.BirdNameMaster.findOne({
+              // newBirdNames.forEach((name, i) => {
+              //   name.replace("'", "\\'")
+              //   newBirdNames[i] = "%" + name + "%"
+              // })
+              // // Turning the items into objects with "$iLike" as the key
+              // let searchFor = newBirdNames.map((item) => {
+              //     return {$like: item};
+              // });
+              // console.log(newBirdNames);
+              // Filter the matching names from the bird name database with the descriptions
+              // db.BirdNameMaster.findAll({
+              //   where: {
+              //       $or: {
+              //         BirdName: {
+              //           $or: searchFor
+              //         }
+              //       },
+              //   }
+              db.BirdNameMaster.findAll({
                 where: {
-                  BirdName : newBirdNames[0],
+                  BirdName: newBirdNames[0]
                 }
               }).then((data) => {
+                // console.log(data)
+                // console.log(visionQueryResults)
+                // let dataObjToArray = []
+                // data.forEach(e => dataObjToArray.push(e.dataValues.BirdName))
+                // console.log(dataObjToArray);
+
                 res.render("results", {
                   name: req.user.dataValues.username,
                   image: req.user.dataValues.profileIMG,
                   lastPictureSrc: publicUrl,
-                  birdType: data.dataValues.BirdName,
+                  birdType: data[0].dataValues.BirdName,
                   similarImage: (visionQueryResults[0].webDetection.fullMatchingImages ? visionQueryResults[0].webDetection.fullMatchingImages[0].url :visionQueryResults[0].webDetection.partialMatchingImages[0].url),
                 })
               }).catch(err => {
+                console.log(err)
                 res.render("tryAgain", {
                   name: req.user.dataValues.username,
                   image: req.user.dataValues.profileIMG,
