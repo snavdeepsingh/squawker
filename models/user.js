@@ -13,8 +13,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     profileIMG: {
       type: DataTypes.STRING,
-      // allowNull: false,
-      // defaultValue: ''
     }
   });
 
