@@ -31,28 +31,23 @@
         <a class="nav-link" href="/photos">Photos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/auth/logout">Log Out</a>
+        <a class="nav-link" href="#">Log Out</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<div class="container-fluid home-bg">
+<div class="container-fluid results-bg">
   <div class="container">
     <div class="row home-row align-items-center">
       <div class="col-12">
         <div class="row">
           <img id="image-preview" src="" style="margin: 0 auto;"/>
         </div>
-        <h1 id="home-text">WELCOME</h1>
+        <h1 id="home-text">No results. Try again</h1>
         <br />
         <div class="row">
           <h3 id="loading-text" style="margin: 0 auto; color: #fff"></h3>
-        </div>
-        <br />
-        <br />
-        <div class="row loader-wrapper">
-          <div id="loader"></div>
         </div>
       </div>
       <div class="col-12 btn-container">
@@ -62,7 +57,6 @@
             type="file"
             name="file"
             style="display: none;"
-			accept="image/*"
           />
           <input 
             id="image-submit-button"

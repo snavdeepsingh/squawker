@@ -5,6 +5,11 @@ var memoryStorage = multer.memoryStorage();
 var storage = require("@google-cloud/storage");
 var db = require('../models');
 var keys = require("../config/keys.js");
+var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+var searchImages = require('../public/js/searchImages')
+const visionAPI = require('./vision-api');
+
 
 const googleCloudStorage = storage({
   projectId: "Bird",
@@ -22,9 +27,6 @@ const bucket = googleCloudStorage.bucket(BucketName);
 
 module.exports = function (app){
   app.post("/upload", upload.single("file"), (req, res, next) => {
-    // console.log(req.user.dataValues.googleID);
-    // console.log("THis is Date!!!!!!!!!!",Date.now());
-    // console.log("this is req.file!!!!!!!!!!", req.file);
     if (!req.file) {
       res.status(400).send("No file uploaded.");
       return;
@@ -36,17 +38,16 @@ module.exports = function (app){
         contentType: req.file.mimetype
       }
     });
-  
+
     blobStream.on("error", err => {
       next(err);
       return;
     });
-  
-    blobStream.on("finish", () => {
-      
-      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
 
-  
+    blobStream.on("finish", () => {
+
+      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+      const visionUrl = `gs://${bucket.name}/${blob.name}`;
       blob.makePublic().then(() => {
         db.Image.findOrCreate({
           where: {
@@ -55,18 +56,88 @@ module.exports = function (app){
           }
         })
         .then(() => {
-          let handleBarsObj = {
-            name: req.user.dataValues.username,
-            image: req.user.dataValues.profileIMG,
-            lastPictureSrc: publicUrl,
-          };
-          res.render("results", handleBarsObj)
-        });
+          visionAPI.reqObj.requests[0].image.source.imageUri = visionUrl
+
+          return visionAPI.visionQuery(visionAPI.apiCall, visionAPI.reqObj)
+        }).then((visionQueryResults) => {
+          let birdNames = [];
+          visionQueryResults[0].labelAnnotations.forEach(labelAnnotation => {
+            birdNames.push(labelAnnotation.description);
+          })
+          if (birdNames.includes('fauna') || birdNames.includes('bird')) {
+            let newBirdNames = [];
+            visionQueryResults[0].webDetection.webEntities.forEach(entity => {
+              if (entity.description && entity.description.toLowerCase() !== 'bird' && entity.description.toLowerCase() !== 'hawk' && entity.description.toLowerCase() !== 'eagle' && entity.description.toLowerCase() !== 'fauna')
+                newBirdNames.push(entity.description)
+            })
+            if (visionQueryResults[0].webDetection.fullMatchingImages || visionQueryResults[0].webDetection.partialMatchingImages) {
+              // newBirdNames.forEach((name, i) => {
+              //   name.replace("'", "\\'")
+              //   newBirdNames[i] = "%" + name + "%"
+              // })
+              // // Turning the items into objects with "$iLike" as the key
+              // let searchFor = newBirdNames.map((item) => {
+              //     return {$like: item};
+              // });
+              // console.log(newBirdNames);
+              // Filter the matching names from the bird name database with the descriptions
+              // db.BirdNameMaster.findAll({
+              //   where: {
+              //       $or: {
+              //         BirdName: {
+              //           $or: searchFor
+              //         }
+              //       },
+              //   }
+              db.BirdNameMaster.findAll({
+                where: {
+                  BirdName: newBirdNames[0]
+                }
+              }).then((data) => {
+                // console.log(data)
+                // console.log(visionQueryResults)
+                // let dataObjToArray = []
+                // data.forEach(e => dataObjToArray.push(e.dataValues.BirdName))
+                // console.log(dataObjToArray);
+
+                res.render("results", {
+                  name: req.user.dataValues.username,
+                  image: req.user.dataValues.profileIMG,
+                  lastPictureSrc: publicUrl,
+                  birdType: data[0].dataValues.BirdName,
+                  similarImage: (visionQueryResults[0].webDetection.fullMatchingImages ? visionQueryResults[0].webDetection.fullMatchingImages[0].url :visionQueryResults[0].webDetection.partialMatchingImages[0].url),
+                })
+              }).catch(err => {
+                console.log(err)
+                res.render("tryAgain", {
+                  name: req.user.dataValues.username,
+                  image: req.user.dataValues.profileIMG,
+                  lastPictureSrc: publicUrl
+                })
+              })
+            } else if (visionQueryResults[0].webDetection.visuallySimilarImages) {
+              let birdInfo = searchImages(visionQueryResults[0].webDetection.visuallySimilarImages, newBirdNames);
+              console.log(birdInfo)
+              res.render("results", {
+                name: req.user.dataValues.username,
+                image: req.user.dataValues.profileIMG,
+                lastPictureSrc: publicUrl,
+                birdType: birdInfo.birdType,
+                similarImage: birdInfo.similarImage
+              })
+            }
+          } else {
+            res.render("tryAgain", {
+              name: req.user.dataValues.username,
+              image: req.user.dataValues.profileIMG,
+              lastPictureSrc: publicUrl
+            })
+          }
+        }).catch(err => console.log(err))
       });
     });
-  
+
     blobStream.end(req.file.buffer);
   });
 
 }
-
