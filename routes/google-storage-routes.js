@@ -50,23 +50,29 @@ module.exports = function (app){
         })
         .then(() => {
           visionAPI.reqObj.requests[0].image.source.imageUri = publicUrl
-          // console.log(visionAPI.reqObj.requests[0].image.source.imageUri)
-
+          
           return visionAPI.visionQuery(visionAPI.apiCall, visionAPI.reqObj)
-
         }).then((visionQueryResults) => {
-          console.log(visionQueryResults[0].labelAnnotations)
-          // console.log(visionQueryResults[0].webDetection.visuallySimilarImages[0].url)
-
-          let handleBarsObj = {
-            name: req.user.dataValues.username,
-            image: req.user.dataValues.profileIMG,
-            lastPictureSrc: publicUrl,
-            birdType: visionQueryResults[0].webDetection.webEntities[0].description,
-            similarImage: visionQueryResults[0].webDetection.visuallySimilarImages[0].url
-            // resultsInfo: JSON.stringify(visionQueryResults[0].labelAnnotations)
+          let birdNames = [];
+          visionQueryResults[0].labelAnnotations.forEach(labelAnnotation => {
+            birdNames.push(labelAnnotation.description);
+          })
+          if (!birdNames.includes('fauna') || !birdNames.includes('bird')) {
+            res.render("tryAgain", {
+              name: req.user.dataValues.username,
+              image: req.user.dataValues.profileIMG,
+              lastPictureSrc: publicUrl
+            })
+          } else {
+            let handleBarsObj = {
+              name: req.user.dataValues.username,
+              image: req.user.dataValues.profileIMG,
+              lastPictureSrc: publicUrl,
+              birdType: visionQueryResults[0].webDetection.webEntities[0].description,
+              similarImage: visionQueryResults[0].webDetection.visuallySimilarImages[0].url
+            }
+            res.render("results", handleBarsObj)
           }
-          res.render("results", handleBarsObj)
         }).catch(err => console.log(err))
       });
     });
