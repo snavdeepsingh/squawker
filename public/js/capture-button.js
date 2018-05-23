@@ -10,6 +10,7 @@ $(function() {
     let reader  = new FileReader();
     let homeText = document.querySelector('#home-text');
     let loadingText = document.querySelector('#loading-text');
+    let loaderWrapper = document.querySelector('.loader-wrapper');
 
     reader.onloadend = function () {
       preview.src = reader.result;
@@ -21,12 +22,14 @@ $(function() {
       loadingText.innerText = 'Loading...';
       submitBtn.classList.add('hidden');
       background.classList.add('loading');
+      loaderWrapper.classList.add('loading');
     } else {
       preview.src = "";
       loadingText.innerText = '';
       homeText.innerText = 'WELCOME'
       submitBtn.classList.remove('hidden');
       background.classList.remove('loading');
+      loaderWrapper.classList.remove('loading');
     }
   }
 
