@@ -20,7 +20,7 @@ const bucket = googleCloudStorage.bucket(BucketName);
 
 module.exports = function (app){
   app.post("/upload", upload.single("file"), (req, res, next) => {
-    console.log(req.user.dataValues.googleID);
+    // console.log(req.user.dataValues.googleID);
     if (!req.file) {
       res.status(400).send("No file uploaded.");
       return;
@@ -50,21 +50,24 @@ module.exports = function (app){
         })
         .then(() => {
           visionAPI.reqObj.requests[0].image.source.imageUri = publicUrl
-          console.log(visionAPI.reqObj.requests[0].image.source.imageUri)
+          // console.log(visionAPI.reqObj.requests[0].image.source.imageUri)
 
           return visionAPI.visionQuery(visionAPI.apiCall, visionAPI.reqObj)
 
         }).then((visionQueryResults) => {
-          console.log(visionQueryResults)
+          console.log(visionQueryResults[0].labelAnnotations)
+          // console.log(visionQueryResults[0].webDetection.visuallySimilarImages[0].url)
 
           let handleBarsObj = {
             name: req.user.dataValues.username,
             image: req.user.dataValues.profileIMG,
             lastPictureSrc: publicUrl,
-            resultsInfo: JSON.stringify(visionQueryResults[0].labelAnnotations)
+            birdType: visionQueryResults[0].webDetection.webEntities[0].description,
+            similarImage: visionQueryResults[0].webDetection.visuallySimilarImages[0].url
+            // resultsInfo: JSON.stringify(visionQueryResults[0].labelAnnotations)
           }
           res.render("results", handleBarsObj)
-        }).catch(e => console.log(e))
+        }).catch(err => console.log(err))
       });
     });
 
