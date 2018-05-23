@@ -43,6 +43,7 @@ module.exports = function (app){
     blobStream.on("finish", () => {
 
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+      const visionUrl = `gs://${bucket.name}/${blob.name}`;
 
       blob.makePublic().then(() => {
         db.Image.findOrCreate({
@@ -52,7 +53,7 @@ module.exports = function (app){
           }
         })
         .then(() => {
-          visionAPI.reqObj.requests[0].image.source.imageUri = publicUrl
+          visionAPI.reqObj.requests[0].image.source.imageUri = visionUrl
 
           return visionAPI.visionQuery(visionAPI.apiCall, visionAPI.reqObj)
         }).then((visionQueryResults) => {
