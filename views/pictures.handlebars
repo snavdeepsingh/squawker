@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a href="/home">
+    {{#if image}}
+  	  <img 
+  	  	src={{image}} 
+  	  	style="border-radius: 50%"
+  	  />
+  	{{else}}
+  		<div class="navbar-brand">{{name}}</div>
+    {{/if}}
+  </a>
+  
+  <button 
+  	class="navbar-toggler" 
+  	type="button" 
+  	data-toggle="collapse" 
+  	data-target="#navbarSupportedContent" 
+  	aria-controls="navbarSupportedContent" 
+  	aria-expanded="false" 
+  	aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/info">How it works</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/photos">Photos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/logout">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+	<div class="row">
+			{{#each photos}}
+				<div class="col-md-3 col-sm-4 col-xs-6 bird-photo-wrapper">
+					<img src={{url}} class="bird-photo"/>
+				</div>
+			{{else}}
+				<p>No Photos</p>
+			{{/each}}
+	</div>
+</div>

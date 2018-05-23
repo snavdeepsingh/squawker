@@ -62,9 +62,12 @@ typings/
 
 # keys
 keys.js
+<<<<<<< HEAD
+=======
 
 #schema
 *.sql
 
 #keyfile for googleStorage
+>>>>>>> 23ba3afb2737c47849287dc8c0193752685c8de5
 keyfile.json
