@@ -60,3 +60,12 @@ The live demo of Squawker can be found [here]( https://pacific-tundra-22064.hero
 * **mocha**
 * **chai**
 * **karma**
+
+#### Stretch Goals
+* **Visually similar images algorithm**
+* **Machine learning**
+* **Scientific names**
+* **Alternative common names**
+* **Geolocation tagging**
+* **Lost & Found bird feeds**
+* **Migratory info**
