@@ -19,6 +19,10 @@ Beige: 				#947839
 	font-family: "Brandon-Reg";
 	src: url('../fonts/Brandon_reg.otf');
 }
+@font-face {
+    font-family: "Bird-Font";
+    src: url('../fonts/Bird_feather.ttf');
+}
 body {
 	font-family: "Brandon-Reg";
 	height: 100vh;
@@ -32,6 +36,14 @@ h1 {
 }
 .hidden {
 	display: none;
+}
+.squawker-font {
+    font-family: "Brandon-Reg";
+}
+.squawker-font-s {
+    font-family: "Bird-Font" !important;
+    font-size: 4rem;
+    font-weight: bold;
 }
 
 /*Landing Page*/
@@ -114,7 +126,7 @@ h1 {
 .results-row img {
 	object-fit: contain;
 	border-radius: 5px;
-	width: 100%;
+	width: 60%;
 }
 .results-row button {
 	text-align: center;

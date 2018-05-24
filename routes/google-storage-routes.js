@@ -66,47 +66,74 @@ module.exports = function (app){
           visionQueryResults[0].labelAnnotations.forEach(labelAnnotation => {
             birdNames.push(labelAnnotation.description);
           })
+          console.log("BIRD NAMES HERE ++++");
+          console.log(birdNames);
           if (birdNames.includes('fauna') || birdNames.includes('bird')) {
             let newBirdNames = [];
             visionQueryResults[0].webDetection.webEntities.forEach(entity => {
               if (entity.description && entity.description.toLowerCase() !== 'bird' && entity.description.toLowerCase() !== 'hawk' && entity.description.toLowerCase() !== 'eagle' && entity.description.toLowerCase() !== 'fauna')
-                newBirdNames.push(entity.description)
+                newBirdNames.push([entity.description, entity.score])
             })
+            console.log(newBirdNames)
             if (visionQueryResults[0].webDetection.fullMatchingImages || visionQueryResults[0].webDetection.partialMatchingImages) {
-              // newBirdNames.forEach((name, i) => {
-              //   name.replace("'", "\\'")
-              //   newBirdNames[i] = "%" + name + "%"
-              // })
-              // // Turning the items into objects with "$iLike" as the key
-              // let searchFor = newBirdNames.map((item) => {
-              //     return {$like: item};
-              // });
-              // console.log(newBirdNames);
+              // saving bird names array for matching later
+              let savedNewBirdNames = JSON.parse(JSON.stringify(newBirdNames))
+
+              // add % for the like SQL query
+              newBirdNames.forEach((name, i) => {
+                name[0].replace("'", "\\'")
+                newBirdNames[i][0] = "%" + name[0] + "%"
+              })
+              console.log(newBirdNames);
+              // Turning the items into objects with "$iLike" as the key
+              let searchFor = newBirdNames.map((item) => {
+                  return {$like: item[0]};
+              });
+              console.log(newBirdNames);
               // Filter the matching names from the bird name database with the descriptions
-              // db.BirdNameMaster.findAll({
-              //   where: {
-              //       $or: {
-              //         BirdName: {
-              //           $or: searchFor
-              //         }
-              //       },
-              //   }
               db.BirdNameMaster.findAll({
                 where: {
-                  BirdName: newBirdNames[0]
+                    $or: {
+                      BirdName: {
+                        $or: searchFor
+                      }
+                    },
                 }
+              // db.BirdNameMaster.findAll({
+              //   where: {
+              //     BirdName: newBirdNames[0]
+              //   }
               }).then((data) => {
-                // console.log(data)
-                // console.log(visionQueryResults)
-                // let dataObjToArray = []
-                // data.forEach(e => dataObjToArray.push(e.dataValues.BirdName))
-                // console.log(dataObjToArray);
+                console.log(data)
+                console.log(visionQueryResults)
+
+                let dataObjToArray = []
+                data.forEach(e => dataObjToArray.push(e.dataValues.BirdName))
+                console.log(dataObjToArray);
+
+                console.log("Saved NBN: ", savedNewBirdNames);
+                // Match the name from dataObjToArray to the highest score in newBirdNames
+                let highScore = []
+                savedNewBirdNames.forEach((name, i) => {
+                  dataObjToArray.forEach(e => {
+                    // let highScore = Math.max.apply(Math,filteredArray.map(bird => bird.score))
+                    if (name[0].toLowerCase() === e.toLowerCase()) {
+                      console.log(`${name[0]} === ${e} with a score of ${name[1]}`);
+                      if (highScore < name[1]) {
+                        highScore.push(name, i)
+                      }
+                    } else {
+                      console.log(`${name[0]} !== ${e} with a score of ${name[1]}`);
+                    }
+                  })
+                })
+                console.log(highScore);
 
                 res.render("results", {
                   name: req.user.dataValues.username,
                   image: req.user.dataValues.profileIMG,
                   lastPictureSrc: publicUrl,
-                  birdType: data[0].dataValues.BirdName,
+                  birdType: highScore[0][0],
                   similarImage: (visionQueryResults[0].webDetection.fullMatchingImages ? visionQueryResults[0].webDetection.fullMatchingImages[0].url :visionQueryResults[0].webDetection.partialMatchingImages[0].url),
                 })
               }).catch(err => {
