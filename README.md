@@ -1,7 +1,8 @@
-# bird-app
+# Squawker
 
+## Demo
 
-
+The live demo of Squawker can be found [here]( https://pacific-tundra-22064.herokuapp.com/).
 
 ##### Landing/login Page
 ![Landing/login Page](/public/images/landingPage.png?raw=true)
@@ -56,8 +57,6 @@
 * **passport-google-oauth20**
 * **requirejs**
 * **dotenv**
-
-
-## Demo
-
-The demo of the bird App can be found [here]( https://pacific-tundra-22064.herokuapp.com/).
+* **mocha**
+* **chai**
+* **karma**
