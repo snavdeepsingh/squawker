@@ -1,3 +1,4 @@
+require('dotenv').config();
 var multer = require('multer');
 var express = require("express");
 var memoryStorage = multer.memoryStorage();
@@ -5,13 +6,15 @@ var storage = require("@google-cloud/storage");
 var db = require('../models');
 var Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+var keys = require("../config/keys.js");
 
 var searchImages = require('../public/js/searchImages')
 const visionAPI = require('./vision-api');
 
 const googleCloudStorage = storage({
   projectId: "Bird",
-  keyFilename: "keyfile.json"
+  // keyFilename: "keyfile.json"
+  credentials: JSON.parse(process.env.GOOGLE_KEY_FILE_JSON)
 });
 const upload = multer({
   storage: memoryStorage,
@@ -19,7 +22,7 @@ const upload = multer({
     fileSize: 5 * 1024 * 1024
   }
 });
-var BucketName = "snavdeepsingh"
+var BucketName = keys.storageBucket.BucketName;
 const bucket = googleCloudStorage.bucket(BucketName);
 
 module.exports = function (app){
@@ -30,7 +33,8 @@ module.exports = function (app){
       res.status(400).send("No file uploaded.");
       return;
     }
-    const blob = bucket.file(req.file.originalname);
+    var date = Date.now();
+    const blob = bucket.file(date+req.file.originalname);
     const blobStream = blob.createWriteStream({
       metadata: {
         contentType: req.file.mimetype
