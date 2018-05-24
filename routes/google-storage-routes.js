@@ -141,15 +141,21 @@ module.exports = function (app){
                   lastPictureSrc: publicUrl
                 })
               })
-            } else if (visionQueryResults[0].webDetection.visuallySimilarImages) {
+            }
+             else if (visionQueryResults[0].webDetection.visuallySimilarImages) {
               let birdInfo = searchImages(visionQueryResults[0].webDetection.visuallySimilarImages, newBirdNames);
               console.log(birdInfo)
-              res.render("results", {
+              // res.render("results", {
+              //   name: req.user.dataValues.username,
+              //   image: req.user.dataValues.profileIMG,
+              //   lastPictureSrc: publicUrl,
+              //   birdType: birdInfo.birdType,
+              //   similarImage: birdInfo.similarImage
+              // })
+              res.render("tryAgain", {
                 name: req.user.dataValues.username,
                 image: req.user.dataValues.profileIMG,
-                lastPictureSrc: publicUrl,
-                birdType: birdInfo.birdType,
-                similarImage: birdInfo.similarImage
+                lastPictureSrc: publicUrl
               })
             }
           } else {
