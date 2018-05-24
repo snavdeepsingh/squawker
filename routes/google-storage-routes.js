@@ -33,8 +33,7 @@ module.exports = function (app){
       res.status(400).send("No file uploaded.");
       return;
     }
-    var date = Date.now();
-    const blob = bucket.file(date+req.file.originalname);
+    const blob = bucket.file(req.file.originalname);
     const blobStream = blob.createWriteStream({
       metadata: {
         contentType: req.file.mimetype
