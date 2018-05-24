@@ -126,7 +126,7 @@ h1 {
 .results-row img {
 	object-fit: contain;
 	border-radius: 5px;
-	width: 60%;
+	width: 40%;
 }
 .results-row button {
 	text-align: center;
