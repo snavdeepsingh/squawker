@@ -1,71 +1,49 @@
 # Squawker
 
-## Demo
+###### Experimenting with Image Recognition Software & Machine Learning
 
-The live demo of Squawker can be found [here]( https://pacific-tundra-22064.herokuapp.com/).
+## Concept
+Take a picture of any bird to find out what bird it is. The location where the picture was taken is then stored in a database to be used in various aspects of Ornithology such as habitat and migration patterns
 
-##### Landing/login Page
-![Landing/login Page](/public/images/landingPage.png?raw=true)
+#### Goals:
+* Create an algorithm using Google Cloud Vision to reliably detect the correct species
+* Get the user from taking their picture to results effortlessly on a mobile platform
+* Use user feedback to test algorithm and return correct results on future attempts
 
-##### Home Page
-![Home Page](/public/images/homePage.png?raw=true)
+## Development Status: Alpha
+*A live demo of Squawker can be found [here]( https://pacific-tundra-22064.herokuapp.com/)*
 
-##### Navbar options
-![Navbar options](/public/images/navbar.png?raw=true)
+#### Current features:
+* Responsive & Mobile-friendly frontend with a Bootstrap framework (built using Handlebars.js)
+* Google OAuth implemented with passport.js
+* User's submitted photos are saved to Google Cloud Storage
+* User's photos' routes are connected exclusively to their profile (One to Many)
+* Google Cloud Vision detects correct species with existing web entities
+* Cloud Vision result is compared to existing database of birds and returns results to user based on weight after several queries
 
-##### Result Screen
-![Result Screen](/public/images/resultScreen.png?raw=true)
+#### Features in Development:
+* Cloud Vision needs to detect correct species for pictures with no web entities (but with Visually Similar Images)
+* Results need to be saved to a database so Cloud Vision is only called once per image
+* Geolocation needs to be implemented and saved to a database when user receives correct results
+* Photos should NOT be saved to database until Cloud Vision has detected it to fall under "bird" or "fauna" etc
+* User response to "Did we get it right?" should be saved along with the picture to improve our image detection algorithm
+* Image detection should be refactored to change it's weighted results based on tests and whether the image is correct or incorrect
+* Find existing API or create our own with more substantial bird data (known locations, alternative names, etc)
 
-##### User photo library
-![User photo library](/public/images/userPhotoLibrary.png?raw=true)
+---
 
-##### No Results page
-![No results](/public/images/noResults.png?raw=true)
+### Notable Technologies Used
 
-
-##### Technologies Used
-* **HTML**
-* **CSS**
-* **JavaScript**
-* **jQuery**
-* **AJAX**
-* **Node.js**
-* **Express**
-* **Passport.js**
-* **google-cloud-storage**
-* **google-cloud-vision**
-* **Handlebars**
-* **mysql**
-* **sequelize-ORM**
-* **Heroku**
-
-
-
-##### The following npm modules were used
-* **express**
-* **body-parser**
-* **path**
-* **express-handlebars**
-* **cookie-session**
-* **passport**
-* **google-cloud/storage**
-* **google-cloud/vision**
-* **axios**
-* **multer**
-* **mysql2**
-* **sequelize**
-* **passport-google-oauth20**
-* **requirejs**
-* **dotenv**
-* **mocha**
-* **chai**
-* **karma**
-
-#### Stretch Goals
-* **Visually similar images algorithm**
-* **Machine learning**
-* **Scientific names**
-* **Alternative common names**
-* **Geolocation tagging**
-* **Lost & Found bird feeds**
-* **Migratory info**
+* Handlebars.js
+* Bootstrap
+* JavaScript / jQuery
+* Node
+* Express
+* Passport.js
+* Google Cloud Platform
+	* Cloud Vision API
+	* OAuth 2.0
+	* Cloud Storage
+* SQL / Sequelize
+* Mocha / Chai (testing)
+* Heroku / JawsDB (deployment)
