@@ -2,6 +2,11 @@
 
 ###### Experimenting with Image Recognition Software & Machine Learning
 
+##### Contributors:
+* [Ian Rutner](https://github.com/Malazanian)
+* [Ivan Saucedo](https://github.com/ivanscdo)
+* [Navdeep Singh](https://github.com/snavdeepsingh)
+
 ## Concept
 Take a picture of any bird to find out what bird it is. The location where the picture was taken is then stored in a database to be used in various aspects of Ornithology such as habitat and migration patterns
 
