@@ -63,6 +63,8 @@ module.exports = function (app){
           visionQueryResults[0].labelAnnotations.forEach(labelAnnotation => {
             birdNames.push(labelAnnotation.description);
           })
+          console.log("BIRD NAMES HERE ++++");
+          console.log(birdNames);
           if (birdNames.includes('fauna') || birdNames.includes('bird')) {
             let newBirdNames = [];
             visionQueryResults[0].webDetection.webEntities.forEach(entity => {
